@@ -1,5 +1,8 @@
 name: Check for pproxy's latest version
-on: push
+on:
+  schedule:
+    - cron:  '*/15 * * * *'
+
 
 jobs: 
   run:
