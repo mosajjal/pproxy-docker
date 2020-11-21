@@ -1,4 +1,4 @@
-FROM mosajjal/pypy:3.7
+FROM pypy:latest
 LABEL maintainer "Ali Mosajjal <hi@n0p.me>"
 
 USER root
