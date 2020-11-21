@@ -3,7 +3,7 @@ on: push
 
 jobs: 
   run:
-    name: Lint with ESLint
+    name: Get latest version
     runs-on: ubuntu-latest
     steps: 
     - name: Checkout repo
