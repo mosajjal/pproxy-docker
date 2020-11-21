@@ -1,0 +1,10 @@
+FROM tatsushid/tinycore-python
+LABEL maintainer "Alireza Mosajjal <hi@n0p.me>"
+
+RUN sudo pip3 install --upgrade --no-cache-dir pip
+RUN sudo pip3 install --no-cache-dir pproxy pycryptodome asyncssh
+RUN sudo pip3 install --no-cache-dir https://files.pythonhosted.org/packages/04/3d/7225a411742e6e7583f630525b140bb4eab2d3731453f22096c5e75f5b59/uvloop-0.13.0-cp36-cp36m-manylinux2010_x86_64.whl
+
+USER root
+
+ENTRYPOINT ["pproxy"]

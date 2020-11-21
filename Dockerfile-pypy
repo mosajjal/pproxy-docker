@@ -1,0 +1,8 @@
+FROM mosajjal/pypy:3.6
+LABEL maintainer "Alireza Mosajjal <hi@n0p.me>"
+
+USER root
+
+RUN pip install --no-cache-dir pproxy
+
+ENTRYPOINT ["pproxy"]
