@@ -21,6 +21,6 @@ jobs:
         author_name: Ali Mosajjal
         author_email: mosajjal@gmail.com
         message: "added latest version"
-        add: "*."
+        add: "."
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
