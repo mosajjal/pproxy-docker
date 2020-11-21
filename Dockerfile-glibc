@@ -1,4 +1,4 @@
-FROM tatsushid/tinycore:11.0-x86_64
+FROM tatsushid/tinycore:10.0-x86_64
 LABEL maintainer "Ali Mosajjal <hi@n0p.me>"
 
 RUN sudo ln -s /lib /lib64

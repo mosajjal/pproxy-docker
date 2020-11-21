@@ -1,8 +1,6 @@
-FROM alpine:edge
+FROM python:latest
 LABEL maintainer "Ali Mosajjal <hi@n0p.me>"
 
-RUN apk add --no-cache  py3-pycryptodome --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing/
-RUN apk add --no-cache py3-pip  --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing/
-RUN pip3 install --no-cache-dir pproxy
+RUN pip3 install --no-cache-dir pproxy pycryptodome asyncssh
 
 ENTRYPOINT ["pproxy"]
