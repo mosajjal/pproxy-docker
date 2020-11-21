@@ -1,5 +1,5 @@
 FROM alpine:edge
-LABEL maintainer "Alireza Mosajjal <hi@n0p.me>"
+LABEL maintainer "Ali Mosajjal <hi@n0p.me>"
 
 RUN apk add --no-cache  py3-pycryptodome --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing/
 RUN apk add --no-cache py3-pip  --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing/
