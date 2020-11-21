@@ -14,6 +14,7 @@ jobs:
 
     - name: Update source code
       run: ./get_latest_version.sh
+      id: latest_version_name
 
     - name: Commit changes
       uses: EndBug/add-and-commit@v5
@@ -22,5 +23,6 @@ jobs:
         author_email: mosajjal@gmail.com
         message: "added latest version"
         add: "."
+        tag: "v${{ steps.latest_version_name.outputs.version }} --force"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
