@@ -24,22 +24,22 @@ jobs:
         with:
           context: .
           file: ./Dockerfile-pypy
-          tags: ${{ env.REGISTRY }}/mosajjal/pproxy:latest-pypy
-      - run: docker push ${{ env.REGISTRY }}/mosajjal/pproxy:latest-pypy
+          tags: ${{ env.REGISTRY }}/mosajjal/pproxy/pproxy:latest-pypy
+      - run: docker push ${{ env.REGISTRY }}/mosajjal/pproxy/pproxy:latest-pypy
 
       - name: Build py3
         uses: docker/build-push-action@v2
         with:
           context: .
           file: ./Dockerfile-py3
-          tags: ${{ env.REGISTRY }}/mosajjal/pproxy:latest-nouv
-      - run: docker push ${{ env.REGISTRY }}/mosajjal/pproxy:latest-uv
+          tags: ${{ env.REGISTRY }}/mosajjal/pproxy/pproxy:latest-nouv
+      - run: docker push ${{ env.REGISTRY }}/mosajjal/pproxy/pproxy:latest-uv
           
       - name: Build uv
         uses: docker/build-push-action@v2
         with:
           context: .
           file: ./Dockerfile-uv
-          tags: ${{ env.REGISTRY }}/mosajjal/pproxy:latest-uv
-      - run: docker push ${{ env.REGISTRY }}/mosajjal/pproxy:latest-uv
+          tags: ${{ env.REGISTRY }}/mosajjal/pproxy/pproxy:latest-uv
+      - run: docker push ${{ env.REGISTRY }}/mosajjal/pproxy/pproxy:latest-uv
       
