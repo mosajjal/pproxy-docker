@@ -40,8 +40,8 @@ jobs:
           context: .
           file: ./Dockerfile-py3
           tags: 
-            - ${{ env.REGISTRY }}/mosajjal/pproxy-docker/pproxy:latest-nouv
-            - ${{ env.REGISTRY }}/mosajjal/pproxy-docker/pproxy:{{ steps.latest_version_name.outputs.version }}-nouv
+          - ${{ env.REGISTRY }}/mosajjal/pproxy-docker/pproxy:latest-nouv
+          - ${{ env.REGISTRY }}/mosajjal/pproxy-docker/pproxy:{{ steps.latest_version_name.outputs.version }}-nouv
       - run: docker push ${{ env.REGISTRY }}/mosajjal/pproxy-docker/pproxy:latest-nouv
       - run: docker push ${{ env.REGISTRY }}/mosajjal/pproxy-docker/pproxy:{{ steps.latest_version_name.outputs.version }}-nouv
 
@@ -51,7 +51,7 @@ jobs:
           context: .
           file: ./Dockerfile-uv
           tags:
-            - ${{ env.REGISTRY }}/mosajjal/pproxy-docker/pproxy:latest-uv
-            - ${{ env.REGISTRY }}/mosajjal/pproxy-docker/pproxy:{{ steps.latest_version_name.outputs.version }}-uv
+          - ${{ env.REGISTRY }}/mosajjal/pproxy-docker/pproxy:latest-uv
+          - ${{ env.REGISTRY }}/mosajjal/pproxy-docker/pproxy:{{ steps.latest_version_name.outputs.version }}-uv
       - run: docker push ${{ env.REGISTRY }}/mosajjal/pproxy-docker/pproxy:latest-uv
       - run: docker push ${{ env.REGISTRY }}/mosajjal/pproxy-docker/pproxy:{{ steps.latest_version_name.outputs.version }}-uv
