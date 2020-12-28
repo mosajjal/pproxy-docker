@@ -12,6 +12,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Get latest version
+        run: ./get_latest_version.sh
+        id: latest_version_name
+
       - uses: docker/setup-qemu-action@v1
       - uses: docker/setup-buildx-action@v1
       - uses: azure/docker-login@v1
@@ -24,22 +28,30 @@ jobs:
         with:
           context: .
           file: ./Dockerfile-pypy
-          tags: ${{ env.REGISTRY }}/mosajjal/pproxy-docker/pproxy:latest-pypy
+          tags:
+          - ${{ env.REGISTRY }}/mosajjal/pproxy-docker/pproxy:latest-pypy
+          - ${{ env.REGISTRY }}/mosajjal/pproxy-docker/pproxy:{{ steps.latest_version_name.outputs.version }}-pypy
       - run: docker push ${{ env.REGISTRY }}/mosajjal/pproxy-docker/pproxy:latest-pypy
+      - run: docker push ${{ env.REGISTRY }}/mosajjal/pproxy-docker/pproxy:{{ steps.latest_version_name.outputs.version }}-pypy
 
       - name: Build py3
         uses: docker/build-push-action@v2
         with:
           context: .
           file: ./Dockerfile-py3
-          tags: ${{ env.REGISTRY }}/mosajjal/pproxy-docker/pproxy:latest-nouv
-      - run: docker push ${{ env.REGISTRY }}/mosajjal/pproxy-docker/pproxy:latest-uv
-          
+          tags: 
+            - ${{ env.REGISTRY }}/mosajjal/pproxy-docker/pproxy:latest-nouv
+            - ${{ env.REGISTRY }}/mosajjal/pproxy-docker/pproxy:{{ steps.latest_version_name.outputs.version }}-nouv
+      - run: docker push ${{ env.REGISTRY }}/mosajjal/pproxy-docker/pproxy:latest-nouv
+      - run: docker push ${{ env.REGISTRY }}/mosajjal/pproxy-docker/pproxy:{{ steps.latest_version_name.outputs.version }}-nouv
+
       - name: Build uv
         uses: docker/build-push-action@v2
         with:
           context: .
           file: ./Dockerfile-uv
-          tags: ${{ env.REGISTRY }}/mosajjal/pproxy-docker/pproxy:latest-uv
+          tags:
+            - ${{ env.REGISTRY }}/mosajjal/pproxy-docker/pproxy:latest-uv
+            - ${{ env.REGISTRY }}/mosajjal/pproxy-docker/pproxy:{{ steps.latest_version_name.outputs.version }}-uv
       - run: docker push ${{ env.REGISTRY }}/mosajjal/pproxy-docker/pproxy:latest-uv
-      
+      - run: docker push ${{ env.REGISTRY }}/mosajjal/pproxy-docker/pproxy:{{ steps.latest_version_name.outputs.version }}-uv
