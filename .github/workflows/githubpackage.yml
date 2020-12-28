@@ -24,7 +24,6 @@ jobs:
         with:
           context: .
           file: ./Dockerfile-pypy
-          platforms: linux/amd64,linux/arm64,linux/386
           tags: ${{ env.REGISTRY }}/mosajjal/pproxy:latest-pypy
       - run: docker push ${{ env.REGISTRY }}/mosajjal/pproxy:latest-pypy
 
@@ -33,7 +32,6 @@ jobs:
         with:
           context: .
           file: ./Dockerfile-py3
-          platforms: linux/amd64,linux/arm64,linux/386
           tags: ${{ env.REGISTRY }}/mosajjal/pproxy:latest-nouv
       - run: docker push ${{ env.REGISTRY }}/mosajjal/pproxy:latest-uv
           
@@ -42,7 +40,6 @@ jobs:
         with:
           context: .
           file: ./Dockerfile-uv
-          platforms: linux/amd64,linux/arm64,linux/386
           tags: ${{ env.REGISTRY }}/mosajjal/pproxy:latest-uv
       - run: docker push ${{ env.REGISTRY }}/mosajjal/pproxy:latest-uv
       
