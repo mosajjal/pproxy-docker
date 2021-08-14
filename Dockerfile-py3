@@ -1,6 +1,6 @@
 FROM python:latest
 LABEL maintainer "Ali Mosajjal <hi@n0p.me>"
 
-RUN pip3 install --no-cache-dir pproxy pycryptodome asyncssh
+RUN pip3 install --no-cache-dir pproxy pycryptodome asyncssh aioquic pvpn
 
 ENTRYPOINT ["pproxy"]

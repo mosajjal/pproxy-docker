@@ -1,7 +1,7 @@
 name: Check for pproxy's latest version
 on:
   schedule:
-    - cron:  '*/15 * * * *'
+    - cron:  '*/30 * * * *'
 
 
 jobs: 
