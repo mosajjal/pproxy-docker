@@ -1,8 +1,8 @@
-FROM pypy:latest
+FROM pypy:3.9-buster
 LABEL maintainer "Ali Mosajjal <hi@n0p.me>"
 
 USER root
 
-RUN pip install --no-cache-dir pproxy
+RUN pip install --no-cache-dir pproxy pycryptodome asyncssh aioquic pvpn
 
 ENTRYPOINT ["pproxy"]

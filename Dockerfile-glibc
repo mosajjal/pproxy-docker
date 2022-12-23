@@ -1,8 +1,8 @@
-FROM tatsushid/tinycore:10.0-x86_64
+FROM bensuperpc/tinycore:12.0-x86_64
 LABEL maintainer "Ali Mosajjal <hi@n0p.me>"
 
 RUN sudo ln -s /lib /lib64
-RUN tce-load -wic python3.6 openssl expat2 libffi
+RUN tce-load -wic python3.9 expat2 libffi
 RUN sudo pip3 install --no-cache-dir pproxy pycryptodome asyncssh aioquic pvpn
 
 USER root
